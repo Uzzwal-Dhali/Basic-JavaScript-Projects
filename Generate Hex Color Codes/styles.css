@@ -10,6 +10,25 @@ html, body {
   height: 100%;
 }
 
+.toast {
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  background: #fff;
+  color: #1EAD41;
+  padding: 0.75em 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.toast-in {
+  animation: toast-in 0.5s ease-in;
+}
+
+.toast-out {
+  animation: toast-out 0.5s ease-in;
+}
+
 .container {
   background: rgb(154, 95, 214);
   height: 100vh;
@@ -40,15 +59,36 @@ html, body {
 .container .code #copy:hover {
   cursor: pointer;
 }
-.container .button {
+.container .generate {
   background: white;
   padding: 1em 1.2em;
   border-radius: 0.5em;
   transition: background 0.3s ease-in;
   font-weight: 500;
 }
-.container .button:hover {
+.container .generate:hover {
   cursor: pointer;
   background: #002147;
   color: aliceblue;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes toast-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(200px);
+    opacity: 0;
+  }
 }/*# sourceMappingURL=styles.css.map */

@@ -3,12 +3,12 @@ window.onload = () => {
 }
 
 function main() {
-  const button = document.querySelector(".button");
+  const generate = document.querySelector(".generate");
   const container = document.querySelector(".container");
   const display = document.getElementById("display");
   const copy = document.getElementById("copy");
 
-  button.addEventListener("click", function() {
+  generate.addEventListener("click", function() {
     const bgColor = generateColor();
     container.style.background = bgColor;
     display.value = bgColor;
@@ -18,6 +18,7 @@ function main() {
   copy.addEventListener('click', function() {
     navigator.clipboard.writeText(display.value);
     this.innerHTML = "Coppied";
+    generateToastMsg(`${display.value} copied successfully!`);
   });
 }
 
@@ -27,4 +28,21 @@ function generateColor() {
   const blue = Math.floor(Math.random() * 255).toString(16);
 
   return `#${red}${green}${blue}`;
+}
+
+function generateToastMsg(msg) {
+  const div = document.createElement('div');
+  div.className = 'toast toast-in';
+  div.innerHTML = msg;
+
+  div.addEventListener('click', function() {
+    div.classList.remove('toast-in');
+    div.classList.add('toast-out');
+
+    div.addEventListener('animationend', function() {
+      div.remove();
+    });
+  });
+
+  document.body.appendChild(div);
 }
