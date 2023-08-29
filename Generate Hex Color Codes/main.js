@@ -12,6 +12,7 @@ function main() {
     const bgColor = generateColor();
     container.style.background = bgColor;
     display.value = bgColor;
+    copy.innerHTML = "Copy";
   });
 
   copy.addEventListener('click', function() {

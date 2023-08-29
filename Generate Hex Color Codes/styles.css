@@ -37,6 +37,9 @@ html, body {
   border-radius: 0.5em;
   font-size: 1.1em;
 }
+.container .code #copy:hover {
+  cursor: pointer;
+}
 .container .button {
   background: white;
   padding: 1em 1.2em;
