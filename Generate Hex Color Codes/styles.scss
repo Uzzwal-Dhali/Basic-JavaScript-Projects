@@ -21,14 +21,22 @@ html, body {
   .message {
     font-size: 1.4em;
   }
-  input {
-    background: white;
-    padding: 0.5em;
-    border: none;
-    border-radius: 0.5em;
-    font-size: 1.3em;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+  .code {
+    input {
+      background: white;
+      padding: 0.5em;
+      border: none;
+      border-radius: 0.5em;
+      font-size: 1.3em;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    #copy {
+      padding: 0.7em 0.85em;
+      border: none;
+      border-radius: 0.5em;
+      font-size: 1.1em;
+    }
   }
   .button {
     background: white;

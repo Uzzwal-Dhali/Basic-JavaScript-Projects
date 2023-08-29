@@ -22,7 +22,7 @@ html, body {
 .container .message {
   font-size: 1.4em;
 }
-.container input {
+.container .code input {
   background: white;
   padding: 0.5em;
   border: none;
@@ -30,6 +30,12 @@ html, body {
   font-size: 1.3em;
   text-align: center;
   font-family: "Courier New", Courier, monospace;
+}
+.container .code #copy {
+  padding: 0.7em 0.85em;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1.1em;
 }
 .container .button {
   background: white;
