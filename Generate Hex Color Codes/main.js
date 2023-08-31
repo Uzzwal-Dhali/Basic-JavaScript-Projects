@@ -1,3 +1,5 @@
+let div = null;
+
 window.onload = () => {
   main();
 }
@@ -17,21 +19,39 @@ function main() {
 
   copy.addEventListener('click', function() {
     navigator.clipboard.writeText(display.value);
-    this.innerHTML = "Coppied";
-    generateToastMsg(`${display.value} copied successfully!`);
+
+    if(div !== null) {
+      div.remove();
+      div = null;
+    }
+    if(isValidHex(display.value)) {
+      generateToastMsg(`${display.value} copied successfully!`);
+      this.innerHTML = "Coppied";
+    } else {
+      alert('Oops! the color code is not valid');
+    }
   });
+
+  display.addEventListener('keyup', function(e) {
+    const code = e.target.value;
+    if(code && isValidHex(code)) {
+      container.style.background = code;
+    }
+  })
 }
 
 function generateColor() {
-  const red = Math.floor(Math.random() * 255).toString(16);
-  const green = Math.floor(Math.random() * 255).toString(16);
-  const blue = Math.floor(Math.random() * 255).toString(16);
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
 
-  return `#${red}${green}${blue}`;
+  console.log(red.toString(16), green.toString(16), blue.toString(16));
+
+  return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
 }
 
 function generateToastMsg(msg) {
-  const div = document.createElement('div');
+  div = document.createElement('div');
   div.className = 'toast toast-in';
   div.innerHTML = msg;
 
@@ -41,8 +61,17 @@ function generateToastMsg(msg) {
 
     div.addEventListener('animationend', function() {
       div.remove();
+      div = null;
     });
   });
 
   document.body.appendChild(div);
+}
+
+function isValidHex(code) {
+  if(code.length !== 7) return false;
+  if(code[0] !== '#') return false;
+
+  code = code.substring(1);
+  return /^[0-9A-Fa-f]{6}$/i.test(code);
 }
