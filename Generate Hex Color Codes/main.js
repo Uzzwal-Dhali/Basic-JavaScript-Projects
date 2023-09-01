@@ -1,4 +1,5 @@
 let div = null;
+let bgColor = '#1468c7';
 
 window.onload = () => {
   main();
@@ -9,6 +10,7 @@ function main() {
   const container = document.querySelector(".container");
   const display = document.getElementById("display");
   const copy = document.getElementById("copy");
+  display.value = bgColor;
 
   generate.addEventListener("click", function() {
     const bgColor = generateColor();
