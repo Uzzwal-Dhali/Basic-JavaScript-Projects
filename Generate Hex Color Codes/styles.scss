@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@300;400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: "Righteous", sans-serif;
 }
 
 html, body {
@@ -29,7 +31,7 @@ html, body {
 }
 
 .container {
-  background: rgb(154,95,214);
+  background: #002147;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,6 +40,7 @@ html, body {
   gap: 1.5em;
   .message {
     font-size: 1.4em;
+    color: #fff;
   }
   .code {
     input {
