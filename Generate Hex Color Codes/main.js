@@ -1,5 +1,5 @@
 let div = null;
-let bgColor = '1468c7';
+let predefinedColor = '1468c7';
 
 window.onload = () => {
   main();
@@ -10,12 +10,12 @@ function main() {
   const container = document.querySelector(".container");
   const display = document.getElementById("display");
   const copy = document.getElementById("copy");
-  display.value = bgColor;
+  display.value = predefinedColor.toUpperCase();
 
   generate.addEventListener("click", function() {
-    const bgColor = generateColor();
-    container.style.background = bgColor;
-    display.value = bgColor;
+    let bgColor = generateColor();
+    container.style.background = `#` + bgColor;
+    display.value = bgColor.toUpperCase();
     copy.innerHTML = "Copy";
   });
 
@@ -36,8 +36,11 @@ function main() {
 
   display.addEventListener('keyup', function(e) {
     const code = e.target.value;
-    if(code && isValidHex(code)) {
-      container.style.background = code;
+    if(code) {
+      display.value = code.toUpperCase();
+      if(isValidHex(code)) {
+        container.style.background = `#` + code;
+      }
     }
   })
 }
