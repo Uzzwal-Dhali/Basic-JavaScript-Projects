@@ -1,5 +1,5 @@
 let div = null;
-let bgColor = '#1468c7';
+let bgColor = '1468c7';
 
 window.onload = () => {
   main();
@@ -20,14 +20,14 @@ function main() {
   });
 
   copy.addEventListener('click', function() {
-    navigator.clipboard.writeText(display.value);
+    navigator.clipboard.writeText(`#` + display.value);
 
     if(div !== null) {
       div.remove();
       div = null;
     }
     if(isValidHex(display.value)) {
-      generateToastMsg(`${display.value} copied successfully!`);
+      generateToastMsg(`#${display.value} is copied successfully!`);
       this.innerHTML = "Coppied";
     } else {
       alert('Oops! the color code is not valid');
@@ -49,7 +49,7 @@ function generateColor() {
 
   console.log(red.toString(16), green.toString(16), blue.toString(16));
 
-  return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+  return `${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
 }
 
 function generateToastMsg(msg) {
@@ -71,9 +71,6 @@ function generateToastMsg(msg) {
 }
 
 function isValidHex(code) {
-  if(code.length !== 7) return false;
-  if(code[0] !== '#') return false;
-
-  code = code.substring(1);
+  if(code.length !== 6) return false;
   return /^[0-9A-Fa-f]{6}$/i.test(code);
 }

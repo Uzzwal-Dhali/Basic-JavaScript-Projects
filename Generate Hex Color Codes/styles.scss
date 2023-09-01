@@ -45,16 +45,32 @@ html, body {
     margin-bottom: 1.2em;
   }
   .code {
-    input {
-      background: white;
-      padding: 0.5em;
-      border: none;
-      box-shadow: none;
-      outline: none;
-      border-radius: 0.5em;
-      font-size: 1em;
-      text-align: center;
-      font-family: 'Poppins', sans-serif;
+    display: flex;
+    gap: 0.5em;
+    .display_wrapper {
+      display: flex;
+      position: relative;
+      input {
+        background: white;
+        padding: 0.5em;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        border-radius: 0.5em;
+        font-size: 1em;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+      }
+      span {
+        position: absolute;
+        left: -1px;
+        background: #767676;
+        font-family: "Poppins", sans-serif;
+        font-size: 1em;
+        padding: 0.5em 1em;
+        color: #fff;
+        border-radius: 0.5em 0em 0em 0.5em;
+      }
     }
     #copy {
       padding: 0.5em 0.85em;
